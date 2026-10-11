@@ -1,0 +1,236 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN GENERAL Y LIMPIEZA
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  padding-top: 80px; /* Evita que el header fijo tape el inicio de la página */
+}
+
+/* ==========================================================================
+   2. TIPOGRAFÍAS Y TEXTOS
+   ========================================================================== */
+h2 {
+  color: #00343d;
+  padding: 10px 20px;
+  font-size: 35px;
+}
+
+h3 {
+  padding: 10px 20px;
+  font-size: 22px; 
+}
+
+h4 {
+  padding: 10px 20px;
+  font-size: 17px;
+}
+
+body p {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   3. HEADER GENERAL Y DISEÑO SUPERIOR
+   ========================================================================== */
+header {
+  background-color: #00343d;
+  padding: 5px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #ccaf30;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   4. EL BOTÓN DEL HEADER (¡YA NO ESTÁ ASFIXIADO!)
+   ========================================================================== */
+.cta-but {
+  padding: 12px 28px; /* ¡Espacio generoso para que respire con estilo aesthetic! */
+  font-size: 0.95rem;
+  font-weight: bold; 
+  letter-spacing: 0.5px;
+  background-color: transparent; 
+  color: #ccaf30; 
+  border: 2px solid #ccaf30; 
+  border-radius: 8px; 
+  box-shadow: none; 
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap; 
+  transition: all 0.3s ease; 
+}
+
+.cta-but:hover {
+  background-color: #d3ff99; /* Cambia a tu color verde brillante al pasar el mouse */
+  color: #00343d; /* Cambia el color del texto para que contraste perfecto */
+  border-color: #d3ff99;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 15px rgba(211, 255, 153, 0.3);
+}
+
+.cta-but:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   5. BOTONES GENERALES DE LA PÁGINA (CATÁLOGOS)
+   ========================================================================== */
+button {
+  padding: 8px 16px; 
+  font-size: 1rem; 
+  background-color: #ccaf30;
+  color: rgb(0, 0, 0);
+  border: 2px solid #000b3d;
+  box-shadow: 2px 2px 10px #999;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+}
+
+button:hover {
+  background-color: #d3ff99;
+  transform: translateY(-3px); 
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); 
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 10px #999;
+}
+
+/* ==========================================================================
+   6. SECCIÓN PRESENTACIÓN DE TU PORTADA
+   ========================================================================== */
+#presentacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  height: 90vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("imagenes/lectores.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+#presentacion h1 {
+  color: #fdfffb;
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+#presentacion p {
+  color: #fffdfd;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   7. SECCIÓN DE LAS TARJETAS DEL CATÁLOGO DE LIBROS
+   ========================================================================== */
+#libros {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#libro p {
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.container img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+.tortura {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- BOTONES DE DESCARGA DE CADA LIBRO --- */
+.btn-descarga {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1rem;
+  background-color: #ccaf30; 
+  color: rgb(0, 0, 0);
+  border: 2px solid #000b3d;
+  box-shadow: 2px 2px 10px #999;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; 
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn-descarga:hover {
+  background-color: #d3ff99; 
+  transform: translateY(-3px); 
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-descarga:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 10px #999;
+}
+
+/* --- MENÚ DESPLEGABLE SELECT DE LOS LIBROS --- */
+.selector-libro {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
+  background-color: #fff;
+  border: 2px solid #000b3d;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+}
