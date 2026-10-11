@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Aprendizaje</title>
+    <link rel="stylesheet" type="text/css" href="Apren.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <p class="logo">El Rincon Del Lector</p>
+            <form action="Prueba.Html">
+                <Button class="cta-but">Volver</Button>
+            </form>
+        </div>
+    </header>
+    
+    <section id="presentacion">
+    <h1>Aprendizaje</h1> 
+        <p> Conocimientos, guías y texto para acompañar su camino escolar. </p>
+    <hr></hr>
+    </section>
+
+<section id="libros">
+    <div class="container">
+
+ <!-- Libro 4: Hábitos atómicos -->
+        <article class="libro" data-publico="aprendizaje" data-genero="didactico">
+            <h2>Hábitos atómicos</h2>
+            <img src="juvenil/habitos.jpg" alt="Portada Hábitos atómicos">
+            <h3>Productividad<br>James Clear</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="aprendizaje/habitos.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Enseña cómo los cambios pequeños y constantes pueden producir mejoras significativas a largo plazo. Ofrece estrategias sencillas para crear buenos hábitos y eliminar los perjudiciales.</p>
+        </article>
+
+        <!-- Libro 5: Autobiografía -->
+        <article class="libro" data-publico="aprendizaje" data-genero="didactico">
+            <h2>Autobiografía</h2> 
+            <img src="juvenil/benja.jpg" alt="Portada Autobiografía de Benjamin Franklin">
+            <h3>Autobiografía, desarrollo personal<br>Benjamin Franklin</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="aprendizaje/autobiografia.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Benjamin Franklin relata su vida desde sus humildes comienzos hasta convertirse en científico, inventor, escritor y político. La obra destaca valores como la disciplina, el aprendizaje continuo y el esfuerzo personal.</p>
+        </article>
+
+ <!-- Libro 2: El cerebro se cambia a sí mismo -->
+        <article class="libro" data-publico="aprendizaje" data-genero="didactico">
+            <h2>El cerebro se cambia a sí mismo</h2>
+            <img src="juvenil/cerebro2.jpg" alt="Portada El cerebro se cambia a sí mismo">
+            <h3>Neurociencia divulgativa<br>Norman Doidge</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="aprendizaje/cerebro.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Presenta casos reales que muestran la capacidad del cerebro para adaptarse y reorganizarse. Introduce el concepto de neuroplasticidad de forma clara y comprehensible para cualquier lector.</p>
+        </article>
+
+        <!-- Libro 1: Nuestros conflictos interiores -->
+        <article class="libro" data-publico="aprendizaje" data-genero="drama">
+            <h2>Nuestros conflictos interiores</h2>
+            <img src="juvenil/KK.jpg" alt="Portada Nuestros conflictos interiores">
+            <h3>Psicología<br>Karen Horney</h3>
+            <h4>Autoconclusivo</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="aprendizaje/conflictos.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">La psicóloga Karen Horney explora las luchas internas que surgen entre nuestros deseos, miedos y expectativas. Explica cómo estos conflictos influyen en la personalidad y ofrece una visión accesible del comportamiento humano.</p>
+        </article>
+
+       
+
+        <!-- Libro 3: El hombre que calculaba -->
+        <article class="libro" data-publico="aprendizaje" data-genero="didactico">
+            <h2>El hombre que calculaba</h2>
+            <img src="juvenil/33.jpg" alt="Portada El hombre que calculaba">
+            <h3>Matemáticas recreativas<br>Malba Tahan</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="aprendizaje/calculaba.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">A través de aventuras y acertijos, un brillante calculista resuelve problemas mediante el razonamiento matemático. Combina entretenimiento y aprendizaje de forma excepcional.</p>
+        </article>
+
+    </div>
+</section>
+
+<script>
+    // --- LÓGICA DE DESCARGA AUTOMÁTICA (Mantenla siempre aquí) ---
+    const todosLosLibros = document.querySelectorAll('.libro');
+    todosLosLibros.forEach(libro => {
+        const selector = libro.querySelector('.selector-libro');
+        const boton = libro.querySelector('.btn-descarga');
+        const titulo = libro.querySelector('h2').innerText;
+
+        if (selector && boton) {
+            selector.addEventListener('change', function() {
+                boton.href = this.value;
+                const tomo = selector.options[selector.selectedIndex].text;
+                boton.setAttribute('download', titulo + '_' + tomo + '.pdf');
+            });
+        }
+    });
+
+   // --- NUEVO DETECTOR DE REDIRECCIÓN AVANZADO (Pégalo al final de tus páginas) ---
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const publicoElegido = params.get('publico');
+    const generoElegido = params.get('genero');
+    const extencionElegida = params.get('extencion');
+    const formatoElegido = params.get('formato');
+
+    // Si viene desde el test, ejecutamos la mega búsqueda
+    if (publicoElegido && generoElegido && extencionElegida && formatoElegido) {
+        let libroEncontrado = null;
+        const todosLosLibros = document.querySelectorAll('.libro');
+
+        todosLosLibros.forEach(libro => {
+            // Leemos los 4 atributos data- de cada libro
+            const pub = libro.getAttribute('data-publico');
+            const gen = libro.getAttribute('data-genero');
+            const ext = libro.getAttribute('data-extencion'); // Ojo: sin acentos
+            const form = libro.getAttribute('data-formato');
+
+            if (pub && gen && ext && form) {
+                // Comparamos que las 4 respuestas coincidan perfectamente en minúsculas
+                if (
+                    pub.toLowerCase().trim() === publicoElegido &&
+                    gen.toLowerCase().trim() === generoElegido &&
+                    ext.toLowerCase().trim() === extencionElegida &&
+                    form.toLowerCase().trim() === formatoElegido
+                ) {
+                    libroEncontrado = libro;
+                }
+            }
+        });
+
+        // Si hay match perfecto, hacemos el scroll
+        if (libroEncontrado) {
+            setTimeout(() => {
+                libroEncontrado.style.outline = "4px solid #ccaf30";
+                libroEncontrado.style.borderRadius = "10px";
+                libroEncontrado.style.transition = "outline 0.3s ease";
+                libroEncontrado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1000);
+            
+            setTimeout(() => {
+                libroEncontrado.style.outline = "none";
+            }, 4000);
+        } else {
+            alert("¡Ups! No encontramos un libro que cumpla exactamente con los 4 filtros elegidos, ¡pero te invitamos a explorar esta sección manualmente!");
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>

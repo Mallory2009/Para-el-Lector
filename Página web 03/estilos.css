@@ -1,0 +1,297 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+html{
+    scroll-behavior: smooth;
+}
+h1{font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 2rem;}
+h2{font-size: 2.7rem;
+    text-align: center;
+    margin-bottom: 1.5rem;}
+h3{font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1rem;}
+
+    button{
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        background-color: #ccaf30;
+        color: rgb(0, 0, 0);
+        border: 2px solid #000b3d;
+        box-shadow: 2px 2px 10px #999;
+        border-radius: 10px;
+        font-weight: bold;
+        text-align:center;
+
+         cursor: pointer;
+    transition: all 0.3s ease; 
+    }
+    button:hover{
+        background-color: #d3ff99;
+        cursor: pointer;
+
+        /* EFECTO FLOTANTE: Sube el botón 3 píxeles hacia arriba */
+    transform: translateY(-3px); 
+    
+    /*LA SOMBRA CRECE: Como el botón "sube", la sombra se vuelve más profunda */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); 
+    }
+
+    /*EFECTO CLICK: Cuando el usuario presiona el botón, vuelve a su posición original */
+button:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 10px #999;
+}
+
+     .container{
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    header{
+        background-color: #00343d;
+        color: #fffcfc;
+        padding: 5px 0;
+        position: fixed;
+        width: 100%;
+    }
+    header .logo{
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+        padding: 25px 30px;
+        color: #ccaf30;
+    }
+header .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+header .nav{
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    padding-bottom: 25px;
+}
+header a{
+    text-decoration: none;
+    color: #ffffff;
+    margin: 0 10px;
+    font-weight: bold; 
+
+}
+header a:hover{
+    color: #ffde59;
+}
+#inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)
+    ),url("imagenes/portada.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+#inicio h1{
+    color: #d3ff99;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+#inicio p{
+    color: #d3ff99;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+#Colecciones{
+    background-color:#fcf4f4;
+    color:#000000;
+    text-align: center;
+}
+#Colecciones .container{
+    padding: 40px 12px
+}
+#Colecciones p{ 
+    display: none;
+}
+#Colecciones .Seidy h2{
+    margin-top: 100px;
+    margin-bottom: 0px;
+}
+#Colecciones .carta{
+    background-color: #00343d;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px#000b3d;
+    color:#fffdfd
+}
+.carta:first-child{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)
+    ),url("imagenes/lectores.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.carta:nth-child(2){
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)
+    ),url("imagenes/clasicax2.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.carta:nth-child(3){
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)
+    ),url("imagenes/niños.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+.carta:nth-child(4){
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)
+    ),url("imagenes/essscolar.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+#Datos{
+    margin-bottom: 100px;
+    padding: 30px;
+    background-color: #00343d;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(32, 31, 31);
+    color:#ccaf30
+}
+#Datos .Mallory{
+    text-align: center;
+    padding: 40px
+}
+#Contacto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)
+    ),url("imagenes/poportada.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #ccaf30;
+}
+#Contacto p{
+    color: rgb(255, 255, 255)
+}
+#Contacto .Neil{
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+@media (min-width: 720px) {
+
+    header .container{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    header .nav{
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 30px;
+    }
+    #Colecciones .Seidy{
+        display: flex;
+    }
+    #Colecciones .container{
+        justify-content: center;
+        display: flex;
+    }
+    #Colecciones p{
+        display: block;
+        margin-bottom: 30px;
+    }
+    #Colecciones .carta{
+        padding: 15px;
+    }
+}
+
+/* --- LA BARRA OCULTA POR DEFECTO --- */
+#Datos {
+    position: fixed;
+    top: 80px; /* Abajo del header */
+    left: 0;
+    width: 290px;
+    height: calc(100vh - 80px);
+    background-color: #00343d;
+    color: #ffffff;
+    box-sizing: border-box;
+    border-right: 3px solid #ccaf30;
+    z-index: 1200; /* Por encima de todo el catálogo */
+    overflow-y: auto;
+    
+    /* 🚨 LA MAGIA: La empujamos hacia la izquierda fuera de la pantalla */
+    transform: translateX(-100%);
+    /* Hace que se deslice de forma suave al salir y entrar */
+    transition: transform 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+}
+
+/* --- CLASE ACTIVA (Cuando JavaScript la llame, se mostrará) --- */
+#Datos.mostrar {
+    transform: translateX(0);
+}
+
+/* --- BOTÓN PARA CERRAR (La X de la esquina) --- */
+.btn-cerrar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #ccaf30;
+    font-size: 2rem;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: none; /* Quitamos sombras para que sea plano */
+    transition: color 0.3s;
+}
+.btn-cerrar:hover {
+    color: #d3ff99;
+    transform: scale(1.1);
+}
+
+/* --- DISEÑO DE LAS TARJETAS (Igual que antes) --- */
+.barra-lateral { padding: 40px 20px 20px 20px; }
+.tarjeta-lateral {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(204, 175, 48, 0.2);
+}
+.icono-lateral { font-size: 2.5rem; color: #ccaf30; margin-bottom: 10px; }
+.tarjeta-lateral h3 { font-size: 1.2rem; margin: 10px 0; }
+.tarjeta-lateral p { font-size: 0.85rem; color: #e0e0e0; margin-bottom: 15px; }
+.separador-lateral { border: 0; height: 1px; background: linear-gradient(to right, transparent, #ccaf30, transparent); margin: 25px 0; }
+.btn-lateral { width: 100%; padding: 10px; font-size: 0.95rem; background-color: #ccaf30; color: #000; border: 2px solid #000b3d; border-radius: 10px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+.btn-lateral:hover { background-color: #d3ff99; transform: translateY(-2px); }
+
+/* 🚨 EL CONTENEDOR DE LIBROS VUELVE A LA NORMALIDAD */
+#libros {
+    margin-left: 0; /* Ya no necesita el hueco fijo */
+    padding: 40px 20px;
+}

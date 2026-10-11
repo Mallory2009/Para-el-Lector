@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Biblioteca Juvenil</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <p class="logo">El Rincon Del Lector</p>
+            <form action="Prueba.Html">
+                <Button class="cta-but">Volver</Button>
+            </form>
+        </div>
+    </header>
+
+    <section id="presentacion">
+    <h1>Literatura Juvenil</br></h1> 
+        <p> Historias de romance, fantasía y misterio que te atrapan desde la primera pagina <br> ¡Encuentra tu proxima lectura de madrugada! </br> </p>
+    <hr></hr>
+    </section>
+    
+    <section id="libros">
+    <div class="container">
+
+        <!-- El Príncipe Cruel -->
+        <article class="libro" data-publico="juvenil" data-genero="fantasia">
+            <h2>El Príncipe Cruel</h2>
+            <img src="juvenil/cruel.jpg" alt="Portada El Príncipe Cruel">
+            <h3>Género: Fantasía <br>Holly Black</h3>
+            <h4>Trilogía</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="juvenil/cruel1.pdf">Libro 1</option>
+                <option value="juvenil/cruel2.pdf">Libro 2</option>
+                <option value="juvenil/cruel3.pdf">Libro 3</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+            
+            <p class="descripción">Jude Duarte tiene siete años cuando sus padres son asesinados frente a ella y sus hermanas...</p>
+        </article>
+            
+        <!-- Powerless -->
+        <article class="libro" data-publico="juvenil" data-genero="fantasia">
+            <h2>Powerless</h2>
+            <img src="juvenil/3.jpg" alt="Portada Powerless">
+            <h3>Género: Fantasía<br>Lauren Roberts</h3>
+            <h4>Trilogía</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="juvenil/powerless1.pdf">Libro 1</option>
+                <option value="juvenil/powerless2.pdf">Libro 2</option>
+                <option value="juvenil/powerless3.pdf">Libro 3</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+            
+            <p class="descripción">En un mundo donde tener poderes lo es todo, Paedyn Gray no tiene ninguno...</p>
+        </article>
+
+        <!-- Asesinato para principiantes -->
+        <article class="libro" data-publico="juvenil" data-genero="misterio">
+            <h2>Asesinato para principiantes</h2>
+            <img src="juvenil/asesino.jpg" alt="Portada Asesinato para principiantes">
+            <h3>Género: Thriller de misterio. <br>Holly Jackson</h3>
+            <h4>Trilogía (cuenta con precuela)</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="juvenil/asesinato1.pdf">Libro 1</option>
+                <option value="juvenil/asesinato2.pdf">Libro 2</option>
+                <option value="juvenil/asesinato3.pdf">Libro 3</option>
+                <option value="juvenil/precuela.pdf">Precuela</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+            
+            <p class="descripción">Hace cinco años, la estudiante Andie Bell fue asesinada por Sal Singh...</p>
+        </article>
+
+        <!-- Invisible -->
+        <article class="libro" data-publico="juvenil" data-genero="drama">
+            <h2>Invisible</h2> 
+            <img src="juvenil/4.jpg" alt="Portada Invisible">
+            <h3>Género: Drama<br>Eloy Moreno</h3>
+            <h4>Libro autoconclusivo</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="Libros/Semana 6.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+            
+            <p class="descripción">La historia parte de una premisa tan sencilla como profunda: ¿Quién no ha deseado alguna vez ser invisible?...</p>
+        </article>
+
+        <!-- El perfume del rey -->
+        <article class="libro" data-publico="juvenil" data-genero="fantasia">
+            <h2>El Perfume del Rey</h2> 
+            <img src="juvenil/perfume.jpg" alt="Portada El Perfume del Rey">
+            <h3>Género: Fantasía<br>Karine Bernal Lobo</h3>
+            <h4>Libro autoconclusivo</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+               <option value="juvenil/perfume1.pdf">Libro 1</option>
+                <option value="juvenil/perfume2.pdf">Libro 2</option>
+                <option value="juvenil/perfume3.pdf">Libro 3</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+            
+            <p class="descripción">Entre el poder y el amor hay una línea peligrosa. Emily Malhore, hija de los perfumistas más famosos del reino de Mishnock...</p>
+        </article>
+
+    </div>
+</section>
+
+<script>
+    // --- LÓGICA DE DESCARGA AUTOMÁTICA (Mantenla siempre aquí) ---
+    const todosLosLibros = document.querySelectorAll('.libro');
+    todosLosLibros.forEach(libro => {
+        const selector = libro.querySelector('.selector-libro');
+        const boton = libro.querySelector('.btn-descarga');
+        const titulo = libro.querySelector('h2').innerText;
+
+        if (selector && boton) {
+            selector.addEventListener('change', function() {
+                boton.href = this.value;
+                const tomo = selector.options[selector.selectedIndex].text;
+                boton.setAttribute('download', titulo + '_' + tomo + '.pdf');
+            });
+        }
+    });
+
+    // --- NUEVO DETECTOR DE REDIRECCIÓN AVANZADO (Pégalo al final de tus páginas) ---
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const publicoElegido = params.get('publico');
+    const generoElegido = params.get('genero');
+    const extencionElegida = params.get('extencion');
+    const formatoElegido = params.get('formato');
+
+    // Si viene desde el test, ejecutamos la mega búsqueda
+    if (publicoElegido && generoElegido && extencionElegida && formatoElegido) {
+        let libroEncontrado = null;
+        const todosLosLibros = document.querySelectorAll('.libro');
+
+        todosLosLibros.forEach(libro => {
+            // Leemos los 4 atributos data- de cada libro
+            const pub = libro.getAttribute('data-publico');
+            const gen = libro.getAttribute('data-genero');
+            const ext = libro.getAttribute('data-extencion'); // Ojo: sin acentos
+            const form = libro.getAttribute('data-formato');
+
+            if (pub && gen && ext && form) {
+                // Comparamos que las 4 respuestas coincidan perfectamente en minúsculas
+                if (
+                    pub.toLowerCase().trim() === publicoElegido &&
+                    gen.toLowerCase().trim() === generoElegido &&
+                    ext.toLowerCase().trim() === extencionElegida &&
+                    form.toLowerCase().trim() === formatoElegido
+                ) {
+                    libroEncontrado = libro;
+                }
+            }
+        });
+
+        // Si hay match perfecto, hacemos el scroll
+        if (libroEncontrado) {
+            setTimeout(() => {
+                libroEncontrado.style.outline = "4px solid #ccaf30";
+                libroEncontrado.style.borderRadius = "10px";
+                libroEncontrado.style.transition = "outline 0.3s ease";
+                libroEncontrado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1000);
+            
+            setTimeout(() => {
+                libroEncontrado.style.outline = "none";
+            }, 4000);
+        } else {
+            alert("¡Ups! No encontramos un libro que cumpla exactamente con los 4 filtros elegidos, ¡pero te invitamos a explorar esta sección manualmente!");
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>

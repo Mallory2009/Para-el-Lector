@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Encuentra tu Libro Ideal</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://unpkg.com" type="module"></script>
+</head>
+<body style="background-color: #fcfaf2; margin: 0; padding-top: 100px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+    <header style="background-color: #00343d; padding: 15px 0; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0px 4px 12px rgba(0,0,0,0.15);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; max-width: 1200px; margin: 0 auto; box-sizing: border-box;">
+            <p class="logo" style="font-size: 1.6rem; font-weight: bold; color: #ccaf30; margin: 0; letter-spacing: 0.5px;">El rincon del lector</p>
+            <button class="cta-but" onclick="window.location.href='Prueba.html'" style="padding: 10px 24px; font-size: 0.95rem; font-weight: bold; background: transparent; color: #ccaf30; border: 2px solid #ccaf30; border-radius: 8px; cursor: pointer; transition: all 0.3s ease;">Volver</button>
+        </div>
+    </header>
+    
+    <!-- CONTENEDOR DEL CUESTIONARIO COMPLETO -->
+    <section id="quiz-container" style="background-color: #ffffff; padding: 40px 30px; border-radius: 16px; max-width: 550px; margin: 40px auto; border: 1px solid rgba(0, 52, 61, 0.1); text-align: center; box-shadow: 0px 10px 30px rgba(0, 52, 61, 0.05);">
+        <ion-icon name="compass-outline" style="font-size: 3.5rem; color: #ccaf30; margin-bottom: 10px;"></ion-icon>
+        <h2 style="color: #00343d; margin-bottom: 5px; font-size: 2rem; font-weight: 700;">Descubre tu próxima lectura</h2>
+        <p style="color: #666; margin-bottom: 30px; font-size: 0.95rem;">Responde estas preguntas para encontrar tu libro ideal.</p>
+        
+        <form id="libro-quiz" style="display: flex; flex-direction: column; gap: 20px; text-align: left; max-width: 450px; margin: 0 auto;">
+            
+            <!-- Pregunta 1 -->
+            <div>
+                <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #00343d;">1. ¿Qué tipo de público eres?</label>
+                <select id="quiz-publico" required style="padding: 12px; border-radius: 8px; width: 100%; border: 2px solid #e0e0e0; outline: none; font-size: 0.95rem; color: #333; background-color: #fafafa; transition: border 0.3s;">
+                    <option value="" disabled selected>Selecciona un público...</option>
+                    <option value="juvenil">Juvenil</option>
+                    <option value="clasico">Clásicos y Literatura</option>
+                    <option value="primeras">Primeras historias (Infantil)</option>
+                    <option value="aprendizaje">Aprendizaje</option>
+                </select>
+            </div>
+
+            <!-- Pregunta 2 -->
+            <div>
+                <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #00343d;">2. ¿Qué género prefieres hoy?</label>
+                <select id="quiz-genero" required style="padding: 12px; border-radius: 8px; width: 100%; border: 2px solid #e0e0e0; outline: none; font-size: 0.95rem; color: #333; background-color: #fafafa;">
+                    <option value="" disabled selected>Selecciona un género...</option>
+                    <option value="fantasia">Fantasía / Magia</option>
+                    <option value="misterio">Misterio / Thriller</option>
+                    <option value="drama">Drama / Realismo</option>
+                    <option value="didactico">Didáctico / Divulgación</option>
+                </select>
+            </div>
+
+            <!-- NUEVA Pregunta 3: Extensión -->
+            <div>
+                <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #00343d;">3. ¿Qué tan largo te gusta que sea un libro?</label>
+                <select id="quiz-extencion" required style="padding: 12px; border-radius: 8px; width: 100%; border: 2px solid #e0e0e0; outline: none; font-size: 0.95rem; color: #333; background-color: #fafafa;">
+                    <option value="" disabled selected>Selecciona una extensión...</option>
+                    <option value="corta">Corto (Lectura rápida)</option>
+                    <option value="media">Medio (Equilibrado)</option>
+                    <option value="larga">Largo (Para maratonear)</option>
+                </select>
+            </div>
+
+            <!-- NUEVA Pregunta 4: Formato -->
+            <div>
+                <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #00343d;">4. ¿Prefieres una historia única o continuarla?</label>
+                <select id="quiz-formato" required style="padding: 12px; border-radius: 8px; width: 100%; border: 2px solid #e0e0e0; outline: none; font-size: 0.95rem; color: #333; background-color: #fafafa;">
+                    <option value="" disabled selected>Selecciona un formato...</option>
+                    <option value="autoconclusivo">Autoconclusivo (Empieza y termina)</option>
+                    <option value="trilogia">Trilogía (3 partes)</option>
+                    <option value="saga">Saga (Muchos libros)</option>
+                </select>
+            </div>
+
+            <button type="button" id="btn-buscar-libro" style="margin-top: 15px; padding: 14px; font-size: 1rem; background-color: #ccaf30; color: #000; border: 2px solid #000b3d; border-radius: 10px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); width: 100%;">¡Buscar mi libro ideal!</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('btn-buscar-libro').addEventListener('click', function() {
+            const publico = document.getElementById('quiz-publico').value;
+            const genero = document.getElementById('quiz-genero').value;
+            const extencion = document.getElementById('quiz-extencion').value;
+            const formato = document.getElementById('quiz-formato').value;
+
+            // Validamos que se respondan todas
+            if (!publico || !genero || !extencion || !formato) {
+                alert("Por favor, responde las 4 preguntas antes de continuar.");
+                return;
+            }
+
+            const paginasCategorias = {
+                'juvenil': 'Juveniles.html',
+                'clasico': 'Clasicos.html',
+                'primeras': 'infantil.html',
+                'aprendizaje': 'Aprendizaje.html'
+            };
+
+            const paginaDestino = paginasCategorias[publico];
+
+            // 🚨 ENVIAMOS LAS 4 RESPUESTAS POR LA URL
+            window.location.href = `${paginaDestino}?publico=${publico}&genero=${genero}&extencion=${extencion}&formato=${formato}`;
+        });
+    </script>
+</body>
+</html>

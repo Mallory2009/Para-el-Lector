@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Clásicos y Literatura</title>
+    <link rel="stylesheet" type="text/css" href="Cestilo.Css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <p class="logo">El Rincon Del Lector</p>
+            <form action="Prueba.Html">
+                <Button class="cta-but">Volver</Button>
+            </form>
+        </div>
+    </header>
+    
+    <section id="presentacion">
+    <h1>Clásicos <br>y Literatura</br></h1> 
+        <p>Obras imprescindibles y lecturas inolvidables. Sumérgete en: <br> ¡Los clásicos que nunca pasan de moda! </br> </p>
+    <hr></hr>
+    </section>
+
+    <section id="libros">
+    <div class="container">
+
+        <!-- Libro 1: El mito de Sísifo -->
+        <article class="libro" data-publico="clasico" data-genero="drama">
+            <h2>El mito de Sísifo</h2>
+            <img src="juvenil/mito.jpg" alt="Portada El mito de Sísifo">
+            <h3>Ensayo Filosófico<br>Albert Camus</h3>
+            <h4>Autoconclusivo</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="clasicos/sisifo.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Camus reflexiona sobre el absurdo de la vida y plantea que, aunque la existencia parezca carecer de sentido, el ser humano puede encontrar libertad y dignidad al seguir viviendo.</p>
+        </article>
+
+        <!-- Libro 2: Indigno de ser humano -->
+        <article class="libro" data-publico="clasico" data-genero="drama">
+            <h2>Indigno de ser humano</h2>
+            <img src="juvenil/indigno.jpg" alt="Portada Indigno de ser humano">
+            <h3>Novela psicológica, ficción literaria<br>Osamu Dazai</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="clasicos/indigno.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Sigue la vida de Yōzō Ōba, un hombre incapaz de sentirse parte de la sociedad. A través de sus recuerdos, muestra su alienación, depresión y lucha por comprender qué significa ser humano.</p>
+        </article>
+
+        <!-- Libro 3: Oliver Twist -->
+        <article class="libro" data-publico="clasico" data-genero="drama">
+            <h2>Oliver Twist</h2>
+            <img src="juvenil/oliver.jpg" alt="Portada Oliver Twist">
+            <h3>Novela social<br>Charles Dickens</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="clasicos/oliver.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Un niño huérfano crece en la pobreza del Londres victoriano y se ve atrapado en un mundo de delincuencia y explotación mientras busca una vida mejor.</p>
+        </article>
+
+        <!-- Libro 4: Crimen y castigo -->
+        <article class="libro" data-publico="clasico" data-genero="misterio">
+            <h2>Crimen y castigo</h2>
+            <img src="juvenil/ffio.jpg" alt="Portada Crimen y castigo">
+            <h3>Novela psicológica<br>Fiódor Dostoievski</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="clasicos/crimen.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Raskólnikov, un estudiante pobre, comete un asesinato creyendo que ciertas personas están por encima de la moral. Después debe enfrentarse a la culpa, el miedo y las consecuencias de sus actos.</p>
+        </article>
+
+        <!-- Libro 5: El canto de Aquiles -->
+        <article class="libro" data-publico="clasico" data-genero="fantasia">
+            <h2>El canto de Aquiles</h2> 
+            <img src="juvenil/quiles.jpg" alt="Portada El canto de Aquiles">
+            <h3>Fantasía histórica<br>Madeline Miller</h3>
+            <h4>Autoconclusiva</h4>
+            
+            <select class="selector-libro" required>
+                <option value="" disabled selected>Selecciona un libro...</option>
+                <option value="clasicos/aquiles.pdf">Libro Único</option>
+            </select>
+            <a class="btn-descarga" href="#" download>Descargar</a>
+
+            <p class="descripción">Narra la historia de Patroclo y Aquiles desde su infancia hasta la Guerra de Troya, mezclando amistad, amor, heroísmo y tragedia.</p>
+        </article>
+
+    </div>
+</section>
+
+<script>
+    // --- LÓGICA DE DESCARGA AUTOMÁTICA (Mantenla siempre aquí) ---
+    const todosLosLibros = document.querySelectorAll('.libro');
+    todosLosLibros.forEach(libro => {
+        const selector = libro.querySelector('.selector-libro');
+        const boton = libro.querySelector('.btn-descarga');
+        const titulo = libro.querySelector('h2').innerText;
+
+        if (selector && boton) {
+            selector.addEventListener('change', function() {
+                boton.href = this.value;
+                const tomo = selector.options[selector.selectedIndex].text;
+                boton.setAttribute('download', titulo + '_' + tomo + '.pdf');
+            });
+        }
+    });
+
+   // --- NUEVO DETECTOR DE REDIRECCIÓN AVANZADO (Pégalo al final de tus páginas) ---
+window.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const publicoElegido = params.get('publico');
+    const generoElegido = params.get('genero');
+    const extencionElegida = params.get('extencion');
+    const formatoElegido = params.get('formato');
+
+    // Si viene desde el test, ejecutamos la mega búsqueda
+    if (publicoElegido && generoElegido && extencionElegida && formatoElegido) {
+        let libroEncontrado = null;
+        const todosLosLibros = document.querySelectorAll('.libro');
+
+        todosLosLibros.forEach(libro => {
+            // Leemos los 4 atributos data- de cada libro
+            const pub = libro.getAttribute('data-publico');
+            const gen = libro.getAttribute('data-genero');
+            const ext = libro.getAttribute('data-extencion'); // Ojo: sin acentos
+            const form = libro.getAttribute('data-formato');
+
+            if (pub && gen && ext && form) {
+                // Comparamos que las 4 respuestas coincidan perfectamente en minúsculas
+                if (
+                    pub.toLowerCase().trim() === publicoElegido &&
+                    gen.toLowerCase().trim() === generoElegido &&
+                    ext.toLowerCase().trim() === extencionElegida &&
+                    form.toLowerCase().trim() === formatoElegido
+                ) {
+                    libroEncontrado = libro;
+                }
+            }
+        });
+
+        // Si hay match perfecto, hacemos el scroll
+        if (libroEncontrado) {
+            setTimeout(() => {
+                libroEncontrado.style.outline = "4px solid #ccaf30";
+                libroEncontrado.style.borderRadius = "10px";
+                libroEncontrado.style.transition = "outline 0.3s ease";
+                libroEncontrado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 1000);
+            
+            setTimeout(() => {
+                libroEncontrado.style.outline = "none";
+            }, 4000);
+        } else {
+            alert("¡Ups! No encontramos un libro que cumpla exactamente con los 4 filtros elegidos, ¡pero te invitamos a explorar esta sección manualmente!");
+        }
+    }
+});
+
+</script>
+
+</body>
+</html>

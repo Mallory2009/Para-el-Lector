@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>El Rincón Del Lector</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+</head>
+<body>
+ <header>
+    <div class="container">
+        <div class="container">
+            <p class="logo">El Rincon Del Lector</p>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#Colecciones">Colecciones</a>
+                <a href="#Contacto">Contacto</a>
+            </nav>
+        </div>
+    </div>
+ </header>
+
+<button id="btn-abrir-sidebar" class="btn-toggle-sidebar" style="position: fixed; top: 95px; left: 20px; z-index: 1100; padding: 10px; font-size: 1.2rem;">
+    <ion-icon name="menu-outline"></ion-icon> Menú
+</button>
+
+<section id="Datos" class="sidebar-oculta">
+
+    <div class="barra-lateral">
+       
+        <button id="btn-cerrar-sidebar" class="btn-cerrar">&times;</button>
+        
+        
+            <div class="tarjeta-lateral" id="bloque-usuario">
+                <ion-icon name="document-outline" class="icono-lateral"></ion-icon>
+                <h3 id="saludo-lateral">¡Adelante!</h3>
+                <p id="subtexto-lateral">¡Registra tu cuenta! ¡Es gratis!</p>
+           
+                <button type="button" class="btn-lateral" id="btn-abrir-registro">¡Haz clic aquí!</button>
+            </div>
+            
+            <hr class="separador-lateral">
+            <!-- Bloque de Tus Libros -->
+            <div class="tarjeta-lateral">
+                <ion-icon name="library-outline" class="icono-lateral"></ion-icon>
+                <h3>Tus libros</h3>
+                <p>¡Registra los libros que hayas leído! Mantén un control de tus lecturas.</p>
+                <form action="Datoslibro.html">
+                    <button class="btn-lateral">Datos de libros</button>
+                </form>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<script>
+    const sidebar = document.getElementById('Datos');
+    const btnAbrir = document.getElementById('btn-abrir-sidebar');
+    const btnCerrar = document.getElementById('btn-cerrar-sidebar');
+
+    // Al hacer clic en "Menú", le ponemos la clase que la muestra
+    btnAbrir.addEventListener('click', () => {
+        sidebar.classList.add('mostrar');
+    });
+
+    // Al hacer clic en la "X", le quitamos la clase para ocultarla
+    btnCerrar.addEventListener('click', () => {
+        sidebar.classList.remove('mostrar');
+    });
+</script>
+
+
+ <section id="inicio">
+    <h1>¿Qué historia vas a vivir hoy?</h1>
+    <p>Si no puedes elegir: <br> 
+        ¡Déjanos ayudarte con un cuestionario!<br></p>
+    <form action="Cuestionario.html">
+        <button>Cuestionario</button>
+    </form>
+ </section>
+
+ <Section id="Colecciones">
+     <h2>Explora nuestras colecciones</h2>
+     <p>Encuentra lecturas según tus intereses, tu etapa de lectura o lo que quieras aprender.</p>
+    </div>
+    <div class="Seidy">
+        <div class="container">
+            <div class="Viernes">
+                <div class="carta">
+            <h3>Juveniles</h3>
+            <p>Historias de aventura, romance, fantasía y misterio pensadas para lectores jóvenes.</p>
+            <form action="Juveniles.html">
+                <button>¡A la biblioteca!</button>
+            </form>
+        </div>
+        <div class="carta">
+            <h3>Clásicos y literatura</h3>
+            <p>Obras imprescindibles y grandes historias que han trascendido generaciones.</p>
+             <form action="Clasicos.html">
+                 <button>¡A la biblioteca!</button>
+                </form>
+        </div>
+        <div class="carta">
+            <h3>Primeras historias</h3>
+            <p>Cuentos, libros ilustrados y lecturas para descubrir el placer de leer desde los primeros años</p>
+            <form action="infantil.html">
+                <button>¡A la biblioteca!</button>
+            </form>
+        </div>
+        <div class="carta">
+            <h3>Aprendizaje</h3>
+            <p>Recursos y libros para estudiar, reforzar el conocimientso y explorar nuevas áreas.</p>
+            <form action="Aprendizaje.html">
+                <button>¡A la biblioteca!</button>
+            </form>
+        </div>
+        </div>
+    </div>
+ </Section>
+
+
+ <section id="Contacto">
+    <div class="conteiner">
+    <h2>Contacto</h2>
+    <p>¿Quieres un libro diferente? <br> ¡Envíanos un mensaje! </br> </p>
+    <form action="contacto.html">
+       <button> Entra aquí</button>
+    </form>
+    </div>
+
+
+    <!-- 🚨 VENTANA EMERGENTE (MODAL) PARA EL REGISTRO (Ponla al final de tu body) -->
+<div id="modal-registro" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); z-index: 2000; align-items: center; justify-content: center;">
+    <div style="background-color: #f9f9f9; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; border: 3px solid #00343d; text-align: center; position: relative; box-shadow: 0px 4px 15px rgba(0,0,0,0.3);">
+        <button id="btn-cerrar-modal" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #00343d; box-shadow: none;">&times;</button>
+        <h2 style="color: #00343d; margin-bottom: 10px;">Crea tu Cuenta 📝</h2>
+        <p style="color: #666; margin-bottom: 20px; font-size: 0.9rem;">Introduce tu nombre para empezar a guardar tus libros.</p>
+        
+        <input type="text" id="input-nombre" placeholder="Tu nombre o usuario" style="width: 80%; padding: 10px; border-radius: 8px; border: 2px solid #00343d; outline: none; font-size: 1rem; margin-bottom: 20px; text-align: center;">
+        <br>
+        <button type="button" id="btn-guardar-registro">Completar Registro</button>
+    </div>
+</div>
+
+<script>
+modal = document.getElementById('modal-registro');
+const btnAbrirReg = document.getElementById('btn-abrir-registro');
+const btnCerrarModal = document.getElementById('btn-cerrar-modal');
+const btnGuardarReg = document.getElementById('btn-guardar-registro');
+const inputNombre = document.getElementById('input-nombre');
+
+const saludoLateral = document.getElementById('saludo-lateral');
+const subtextoLateral = document.getElementById('subtexto-lateral');
+
+// Función que revisa si el usuario ya se había registrado antes
+function comprobarUsuario() {
+    const usuarioGuardado = localStorage.getItem('nombreUsuario');
+    if (usuarioGuardado) {
+        // Si ya existe, cambiamos el texto de la barra lateral de inmediato
+        saludoLateral.innerText = `¡Hola, ${usuarioGuardado}! 👋`;
+        subtextoLateral.innerText = "Mantenemos tu sesión activa en este navegador.";
+        btnAbrirReg.innerText = "Cerrar Sesión";
+        btnAbrirReg.style.backgroundColor = "#ff4d4d"; // Lo volvemos rojo para cerrar sesión
+        btnAbrirReg.style.color = "#ffffff";
+    } else {
+        // Si no existe, dejamos el texto normal de invitación
+        saludoLateral.innerText = "¡Bienvenido!";
+        subtextoLateral.innerText = "¡Registra tu cuenta! ¡Es gratis!";
+        btnAbrirReg.innerText = "¡Haz clic aquí!";
+        btnAbrirReg.style.backgroundColor = "#ccaf30"; // Tu amarillo original
+        btnAbrirReg.style.color = "#000000";
+    }
+}
+
+// Ejecutamos la comprobación apenas cargue la página
+window.addEventListener('DOMContentLoaded', comprobarUsuario);
+
+// Manejo de clicks en los botones del registro
+btnAbrirReg.addEventListener('click', () => {
+    const usuarioGuardado = localStorage.getItem('nombreUsuario');
+    if (usuarioGuardado) {
+        // Si le da clic teniendo sesión activa, borramos la cuenta (Cerrar sesión)
+        if(confirm("¿Seguro que quieres cerrar sesión?")) {
+            localStorage.removeItem('nombreUsuario');
+            comprobarUsuario();
+        }
+    } else {
+        // Si no tiene sesión, abrimos la ventana para que se registre
+        modal.style.display = 'flex';
+        inputNombre.focus();
+    }
+});
+
+btnCerrarModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+btnGuardarReg.addEventListener('click', () => {
+    const nombre = inputNombre.value.trim();
+    if (nombre === "") {
+        alert("Por favor, ingresa un nombre válido.");
+        return;
+    }
+
+    // 🚨 GUARDADO EN MEMORIA: Guardamos el nombre en el navegador
+    localStorage.setItem('nombreUsuario', nombre);
+    
+    // Cerramos el modal, limpiamos el input y actualizamos los textos de la barra lateral
+    modal.style.display = 'none';
+    inputNombre.value = "";
+    comprobarUsuario();
+    
+    alert(`¡Registro exitoso! Bienvenido a tu rincón de lectura, ${nombre}. `);
+});
+</script> 
+
+</body>
+</html>

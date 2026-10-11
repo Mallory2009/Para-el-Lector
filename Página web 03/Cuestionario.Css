@@ -1,0 +1,217 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif
+}
+body{
+    line-height: 1.6;
+}
+h2{
+    color: #00343d;
+    padding: 10px 20px;
+    font-size: 35px;
+}
+h3{
+  padding: 10px 20px;
+    font-size: 22px; 
+}
+h4{
+      padding: 10px 20px;
+    font-size: 17px;
+}
+body p{
+      padding: 10px 20px;
+    font-size: 16px;
+}
+header{
+    box-shadow: 0 2px 5x rgba(0, 0, 0, 0.1);
+}
+button {
+    padding: 5px 12px; 
+    font-size: 1rem; /* Corregí "rem" por "1rem" para que el navegador lo lea bien */
+    background-color: #ccaf30;
+    color: rgb(0, 0, 0);
+    border: 2px solid #000b3d;
+    box-shadow: 2px 2px 10px #999;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    
+    /*LA ANIMACIÓN SUAVE */
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+button:hover {
+    background-color: #d3ff99;
+    
+    /* EFECTO FLOTANTE: Sube el botón 3 píxeles hacia arriba */
+    transform: translateY(-3px); 
+    
+    /*LA SOMBRA CRECE: Como el botón "sube", la sombra se vuelve más profunda */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); 
+}
+
+/*EFECTO CLICK: Cuando el usuario presiona el botón, vuelve a su posición original */
+button:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 10px #999;
+}
+        
+/* --- EL HEADER CORREGIDO Y BLINDADO --- */
+header {
+    background-color: #00343d;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Asegura que el header siempre quede por encima de los libros al hacer scroll */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Una sombra elegante */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box; /* Evita que el padding estire el header de más */
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #ccaf30;
+    margin: 0; /* Quita márgenes rebeldes que mueven el diseño */
+}
+
+/* --- TRUCO OBLIGATORIO PARA EL CONTENIDO --- */
+/* Como el header flota, necesitas empujar todo tu contenido hacia abajo 
+   para que el encabezado no tape el cuestionario o los primeros libros */
+body {
+    margin: 0;
+    padding-top: 80px; /* Ajusta este número según el alto de tu barra */
+    font-family: sans-serif; /* O la tipografía de tu preferencia */
+}
+
+
+#presentacion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 90vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)
+    ),url("imagenes/lectores.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+#presentacion h1{
+    color: #fdfffb;
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+#presentacion p{
+    color: #fffdfd;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+.cta-but{
+        padding: 2px 5%;
+        font-size: 1.2rem;
+        background-color: #ccaf30;
+        color: rgb(0, 0, 0);
+        border: 2px solid #000b3d;
+        box-shadow: 2px 2px 10px #999;
+        border-radius: 10px;
+        font-weight: bold;
+        text-align:center;
+        
+}
+.cta-but:hover{
+        background-color: #d3ff99;
+        cursor: pointer;}
+
+#libros{
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto
+}
+#libro p{
+text-align: center;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px));
+    gap: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5x rgba(0, 0, 0, 0.1);
+}
+.container img{
+    object-fit: cover;
+    align-items: center center;
+    padding: 2px 5px;
+        font-size: 1.2rem;
+        background-color: #ccaf30;
+        color: rgb(0, 0, 0);
+        border: 2px solid #000b3d;
+        box-shadow: 2px 2px 10px #999;
+        border-radius: 10px;
+        font-weight: bold;
+}
+.totura{
+     box-shadow: 0 2px 5x rgba(0, 0, 0, 0.1);
+}
+
+/* --- RECUPERAR EL DISEÑO DE TUS BOTONES DE DESCARGA --- */
+.btn-descarga {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 1rem;
+    background-color: #ccaf30; /* Tu color amarillo original */
+    color: rgb(0, 0, 0);
+    border: 2px solid #000b3d;
+    box-shadow: 2px 2px 10px #999;
+    border-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none; /* Quita la línea de enlace */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    
+}
+
+.btn-descarga:hover {
+    background-color: #d3ff99; /* Tu color verde original al pasar el mouse */
+    transform: translateY(-3px); /* Tu efecto de flotado */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-descarga:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 10px #999;
+}
+
+/* --- ESTILO PARA EL MENÚ DESPLEGABLE DE CADA LIBRO --- */
+.selector-libro {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #000b3d;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+}

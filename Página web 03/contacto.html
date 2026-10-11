@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - El Rincón Del Lector</title>
+    <link rel="stylesheet" type="text/css" href="contac.css">
+    <script src="https://unpkg.com" type="module"></script>
+</head>
+<body style="background-color: #f4f4f4;">
+
+    <header>
+        <div class="container">
+            <p class="logo">El rincon del lector — Sugerencias</p>
+            <!-- Botón que te regresa de golpe a tus catálogos principales -->
+            <button class="cta-but" onclick="window.location.href='Prueba.html'">Volver</button>
+        </div>
+    </header>
+
+    <main style="max-width: 600px; margin: 40px auto; padding: 20px;">
+        <section style="background-color: white; padding: 30px; border-radius: 12px; box-shadow: 0px 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #00343d;">
+            
+            <div style="text-align: center; margin-bottom: 25px;">
+                <ion-icon name="mail-open-outline" style="font-size: 3rem; color: #ccaf30;"></ion-icon>
+                <h2 style="color: #00343d; margin-top: 10px;">¿Quieres algún libro específico? 📚</h2>
+                <p style="color: #666; font-size: 0.95rem; margin-top: 5px;">Mándame un mensaje directo detallando qué título o autor te gustaría ver en el catálogo.</p>
+            </div>
+
+            <!-- 🚨 FORMULARIO DE ACCIÓN DIRECTA A TU CORREO -->
+            <!-- REEMPLAZA "tu_correo@gmail.com" por tu dirección de correo electrónico real -->
+            <form action="https://formsubmit.co/Mallorymiller1936@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 20px;">
+                
+                <!-- Campos ocultos de FormSubmit para personalizar la experiencia -->
+                <input type="hidden" name="_next" value="Prueba.html"> <!-- Opcional: Página a redirigir al enviar -->
+                <input type="hidden" name="_captcha" value="false"> <!-- Desactiva el molesto cuadro de "No soy un robot" -->
+                <input type="hidden" name="_subject" value="¡Nueva sugerencia de libro para El Rincón del Lector! 📖">
+
+                <!-- Nombre -->
+                <div>
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #00343d;">Tu Nombre:</label>
+                    <input type="text" name="Nombre" placeholder="Ej. Emily Malhore" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #00343d; box-sizing: border-box; outline: none;">
+                </div>
+
+                <!-- Correo -->
+                <div>
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #00343d;">Tu Correo Electrónico:</label>
+                    <input type="email" name="Correo" placeholder="correo@ejemplo.com" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #00343d; box-sizing: border-box; outline: none;">
+                </div>
+
+                <!-- Detalles del Libro -->
+                <div>
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px; color: #00343d;">¿Qué libro o autor deseas que agregue?</label>
+                    <textarea name="Mensaje" rows="5" placeholder="Escribe aquí el título, autor o cualquier detalle adicional que quieras dejarme..." required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #00343d; box-sizing: border-box; outline: none; font-family: inherit; resize: vertical;"></textarea>
+                </div>
+
+                <!-- Botón de Envío Animado -->
+                <button type="submit" style="width: 100%; padding: 12px; font-size: 1rem; margin-top: 10px;">Enviar Mi Sugerencia</button>
+            </form>
+
+        </section>
+    </main>
+
+    <head>
+    <meta charset="UTF-8">
+    <title>Contacto - El Rincón del Lector</title>
+    <link rel="stylesheet" type="text/css" href="contac.css">
+    
+    <!-- 🚨 SCRIPTS CORREGIDOS PARA QUE TUS ICONOS VUELVAN A FUNCIONAR -->
+    <script type="module" src="https://unpkg.com"></script>
+    <script nomodule src="https://unpkg.com"></script>
+</head>
+
+
+</body>
+</html>

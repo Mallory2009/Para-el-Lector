@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tus Libros - El Rincón del Lector</title>
+    <link rel="stylesheet" type="text/css" href="Dali.css">
+    <script src="https://unpkg.com" type="module"></script>
+</head>
+<body style="background-color: #f4f4f4; padding-top: 100px;">
+
+    <header>
+        <div class="container">
+            <p class="logo">El Rincon Del Lector — Mi Estante</p>
+            <!-- Te regresa a tu catálogo principal -->
+            <button class="cta-but" onclick="window.location.href='Prueba.html'">Volver</button>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <!-- TARJETA DE PERFIL -->
+        <section style="background-color: #fff3c2; color: white; padding: 25px; border-radius: 12px; border-bottom: 4px solid #ccaf30; margin-bottom: 30px; text-align: center;">
+            <ion-icon name="person-circle-outline" style="font-size: 4rem; color: #000000;"></ion-icon>
+            <h2 id="perfil-nombre" style="margin: 10px 0 5px 0;">Perfil de Lector</h2>
+            <p style="color: #000000; font-size: 0.9rem;">Aquí puedes llevar el control de tus lecturas guardadas permanentemente.</p>
+        </section>
+
+        <!-- FORMULARIO PARA REGISTRAR LIBRO -->
+        <section style="background-color: white; padding: 25px; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.05); margin-bottom: 30px;">
+            <h3 style="color: #00343d; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px;">Registrar Nueva Lectura 📖</h3>
+            
+            <form id="form-registrar-libro" style="display: flex; flex-direction: column; gap: 15px;">
+                <div>
+                    <label style="display: block; font-weight: bold; margin-bottom: 5px;">Título del Libro:</label>
+                    <input type="text" id="reg-titulo" placeholder="Ej. El Príncipe Cruel" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;">
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <div style="flex: 1;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Tipo de Lectura:</label>
+                        <select id="reg-tipo" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                            <option value="Leído 🟢">Ya leído (Primera vez)</option>
+                            <option value="Relectura 🔄">Relectura</option>
+                            <option value="Favorito ❤️">Favorito del Estante</option>
+                        </select>
+                    </div>
+                    <div style="flex: 1;">
+                        <label style="display: block; font-weight: bold; margin-bottom: 5px;">Calificación:</label>
+                        <select id="reg-nota" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+                            <option value="⭐⭐⭐⭐⭐">⭐⭐⭐⭐⭐ (Perfecto)</option>
+                            <option value="⭐⭐⭐⭐">⭐⭐⭐⭐ (Muy bueno)</option>
+                            <option value="⭐⭐⭐">⭐⭐⭐ (Entretenido)</option>
+                            <option value="⭐⭐">⭐⭐ (Regular)</option>
+                            <option value="⭐">⭐ (No me gustó)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="btn-guardar-estante" style="margin-top: 10px; padding: 12px;">Añadir a mis libros</button>
+            </form>
+        </section>
+
+        <!-- TABLA O LISTA DE LIBROS GUARDADOS -->
+        <section style="background-color: white; padding: 25px; border-radius: 12px; box-shadow: 0px 4px 10px rgba(0,0,0,0.05);">
+            <h3 style="color: #00343d; margin-bottom: 15px; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px;">Mi Historial de Lecturas 📚</h3>
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                    <thead>
+                        <tr style="background-color: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                            <th style="padding: 12px;">Libro</th>
+                            <th style="padding: 12px;">Estado</th>
+                            <th style="padding: 12px;">Calificación</th>
+                            <th style="padding: 12px;">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-libros">
+                        <!-- Aquí JavaScript meterá los libros dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Al cargar la página, verificamos el usuario y cargamos sus libros
+        window.addEventListener('DOMContentLoaded', () => {
+            const usuarioGuardado = localStorage.getItem('nombreUsuario');
+            const tituloPerfil = document.getElementById('perfil-nombre');
+
+            if (usuarioGuardado) {
+                tituloPerfil.innerText = `Estante de ${usuarioGuardado} 📖`;
+            } else {
+                tituloPerfil.innerText = `Estante del Lector Anónimo 👤`;
+            }
+
+            mostrarLibros();
+        });
+
+        // Capturar el formulario de registro
+        document.getElementById('form-registrar-libro').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue sola
+
+            const titulo = document.getElementById('reg-titulo').value.trim();
+            const tipo = document.getElementById('reg-tipo').value;
+            const nota = document.getElementById('reg-nota').value;
+
+            // Creamos el objeto del nuevo libro
+            const nuevoLibro = { titulo, tipo, nota };
+
+            // Traemos los libros viejos que ya estaban guardados o creamos una lista vacía si es el primero
+            let listaLibros = JSON.parse(localStorage.getItem('misLibrosLeidos')) || [];
+            
+            // Sumamos el nuevo libro a la lista
+            listaLibros.push(nuevoLibro);
+
+            // 🚨 GUARDADO PERMANENTE EN NAVEGADOR
+            localStorage.setItem('misLibrosLeidos', JSON.stringify(listaLibros));
+
+            // Limpiamos el formulario y refrescamos la tabla visual
+            document.getElementById('reg-titulo').value = "";
+            mostrarLibros();
+        });
+
+        // Función encargada de pintar los libros guardados en la pantalla
+        function mostrarLibros() {
+            const tabla = document.getElementById('tabla-libros');
+            const listaLibros = JSON.parse(localStorage.getItem('misLibrosLeidos')) || [];
+
+            // Limpiamos la tabla para que no se dupliquen al redibujar
+            tabla.innerHTML = "";
+
+            if (listaLibros.length === 0) {
+                tabla.innerHTML = `<tr><td colspan="4" style="text-align: center; padding: 20px; color: #888;">Aún no has registrado ningún libro. ¡Empieza arriba!</td></tr>`;
+                return;
+            }
+
+            // Recorremos la lista y creamos una fila por cada libro guardado en LocalStorage
+            listaLibros.forEach((libro, index) => {
+                const fila = document.createElement('tr');
+                fila.style.borderBottom = "1px solid #dee2e6";
+                
+                fila.innerHTML = `
+                    <td style="padding: 12px; font-weight: bold; color: #00343d;">${libro.titulo}</td>
+                    <td style="padding: 12px;"><span style="background-color: #e3f2fd; padding: 4px 8px; border-radius: 15px; font-size: 0.85rem; font-weight: bold;">${libro.tipo}</span></td>
+                    <td style="padding: 12px;">${libro.nota}</td>
+                    <td style="padding: 12px;"><button onclick="eliminarLibro(${index})" style="background-color: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.8rem; box-shadow: none;">Eliminar</button></td>
+                `;
+                tabla.appendChild(fila);
+            });
+        }
+
+        // Función opcional para que puedan borrar un libro si se equivocaron
+        window.eliminarLibro = function(index) {
+            let listaLibros = JSON.parse(localStorage.getItem('misLibrosLeidos')) || [];
+            listaLibros.splice(index, 1); // Quita el libro seleccionado
+            localStorage.setItem('misLibrosLeidos', JSON.stringify(listaLibros));
+            mostrarLibros();
+        }
+    </script>
+</body>
+</html>
